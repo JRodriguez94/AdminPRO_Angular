@@ -6,6 +6,9 @@ import {PagesComponent} from './pages.component';
 import {SharedModule} from '../shared/shared.module';
 // import { PAGES_ROUTES } from './pages.routes';
 import { PagesRoutes } from './pages.routes';
+import {CommonModule} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 @NgModule ({
   declarations: [
@@ -22,7 +25,10 @@ import { PagesRoutes } from './pages.routes';
   imports: [
     SharedModule,
     // PAGES_ROUTES,
-    PagesRoutes
+    PagesRoutes,
+    CommonModule,
+    BrowserModule,
+    FormsModule
   ]
 })
 export class PagesModule {}
