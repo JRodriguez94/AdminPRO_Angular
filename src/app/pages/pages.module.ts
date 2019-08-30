@@ -10,12 +10,20 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
+import {UploadFilesService} from '../services/upload-files.service';
+import {HttpClientModule} from '@angular/common/http';
+
+import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
+
+
+
 @NgModule ({
   declarations: [
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
     PagesComponent,
+    IncrementadorComponent
   ],
   exports: [
     DashboardComponent,
@@ -28,7 +36,11 @@ import {FormsModule} from '@angular/forms';
     PagesRoutes,
     CommonModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [
+    UploadFilesService
   ]
 })
 export class PagesModule {}

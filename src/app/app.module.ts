@@ -9,19 +9,23 @@ import { RegisterComponent } from './login/register.component';
 
 import { PagesModule } from './pages/pages.module';
 import {PagesRoutes} from './pages/pages.routes';
+// import { IncrementadorComponent } from './components/incrementador/incrementador.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    // IncrementadorComponent,
   ],
   imports: [
     BrowserModule,
     // APP_ROUTES,
     AppRoutingModule,
     PagesModule,
-    PagesRoutes
+    PagesRoutes,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

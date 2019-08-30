@@ -4,13 +4,21 @@
     <div class="card-body">
       <h3 class="card-title">Progress Bar</h3>
       <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso1" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso1 + '%'"></div>
       </div>
       <br>
       <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" [attr.ariaValuenow]="progreso" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" [attr.ariaValuenow]="progreso2" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso2 + '%'"></div>
       </div>
-      <div style="padding-top: 2em" class="input-group">
+      <div style="padding-top: 2em" class="row">
+        <div class="col-6">
+          <app-incrementador (cambioValor)="progreso1 = $event" nombre="Progress I" [progreso]="progreso1"></app-incrementador>
+        </div>
+        <div class="col-6">
+          <app-incrementador (cambioValor)="progreso2 = $event" nombre="Progress II" [progreso]="progreso2"></app-incrementador>
+        </div>
+      </div>
+      <!--<div style="padding-top: 2em" class="input-group">
         <input type="text" class="form-control" placeholder="Progreso" [(ngModel)]="progreso" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
         <div class="input-group-append" id="button-addon4">
           <button (click)="cambiarValor(-5)" class="btn btn-outline-secondary" type="button">
@@ -20,7 +28,7 @@
             <i class="mdi mdi-plus"></i>
           </button>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>
@@ -30,10 +38,29 @@
     <div class="card-body">
       <h3 class="card-title">Test API</h3>
       <div style="margin-top: 4em">
-        <button class="btn btn-dark" (click)="getTest()">Test</button>
+        <button class="btn btn-dark" (click)="postTest()">Test</button>
       </div>
       <div *ngIf="result" style="margin-top: 4em"><h5 style="color: #22c522">Respuesta:</h5> <p>{{ result }}</p></div>
       <div *ngIf="error" style="margin-top: 4em"><h5 style="color: #ff0e29">Error:</h5> <p>{{ error }}</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="dard">
+    <div class="card-body">
+      <h3 class="card-title">Upload Files</h3>
+      <form (ngSubmit)="uploadFile()">
+        <div class="form-group">
+          <label for="file" >Nombre del archivo</label><br>
+          <div class="row">
+            <input type="text" class="col-6 form-control" [(ngModel)]="file.name" id="file" name="file" placeholder="File">
+            <!--<input type="file" class="col-6" accept="image/*" (change)="selectFile($event)">-->
+            <input type="file" class="col-6" accept="image/*" (change)="seleccionarArchivo($event)">
+          </div>
+        </div>
+        <button class="btn btn-info">Send</button>
+      </form>
     </div>
   </div>
 </div>
